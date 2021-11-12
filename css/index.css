@@ -56,7 +56,7 @@ a:hover{ font-weight:bold; }
 .portfolio-box{ padding:0 30px; background:url(../img/border.png) top center repeat-y; text-align:center; }
 .portfolio-box ul{ margin-top:150px; }
 #port ul{ opacity:0; }
-.portfolio-box img{ width:300px; box-shadow:5px 5px 15px rgba(0,0,0,0.2); }
+.portfolio-box img{ width:300px; border-radius:10px; box-shadow:5px 5px 15px rgba(0,0,0,0.2); }
 .portfolio-box img:hover{ opacity:0.5; transition:0.3s; }
 .portfolio-tit{ padding:25px 0; font-weight:700; }
 .port-box-1{ padding:300px 0; }
