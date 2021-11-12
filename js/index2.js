@@ -6,28 +6,19 @@ var last_y = 0; // 스크롤 마지막 하단 높이
 var onpage_on = true;
 var isScroll = false;
 
-window.addEventListener('load', function(){
-	setTimeout(function(){
-		document.documentElement.scrollTop=0;
-	})
-});
-
 $(document).ready(function(){
 
 	
 	init();
-
 		
 	// Scroll Event
 	$('body').on('scroll touchmove mousewheel', function(event) {	
 		
 		var t=$("html").scrollTop();
-		var zz=$(window).scrollTop();
+		console.log("total_section: "+total_section);
 		console.log("screen_h: "+screen_h);
 		console.log("last_y: "+last_y);
 		console.log("t: "+t);
-		console.log("zz: "+zz);
-		console.log("isScroll: "+isScroll);
 
 		if(last_y > $("html").scrollTop() && !onpage_on){
 			
@@ -46,7 +37,7 @@ $(document).ready(function(){
 		
 		//스크롤 이벤트 막기
 		//event.preventDefault();
-		//event.stopPropagation();		
+		event.stopPropagation();		
 		if(isScroll) return; // 현재 스크롤이 동작중이면 종료
 		
 		
@@ -56,28 +47,29 @@ $(document).ready(function(){
 
 		if(direction > 0){
 			// up
-			if(current_idx > 0){current_idx --;}
+			current_idx --;
+			if(current_idx < 0){current_idx = -1;}
 			y = current_idx * page_h;
 		}
 		else{
 			// down
-			current_idx ++;		
+			current_idx ++;
 			if(current_idx > total_section){
 				current_idx = total_section;
 				onpage_on = false;
 				return;
-			}			
+			}
+			
 			y = current_idx * page_h;		
 		}
 
 		console.log("direction: "+direction);
 		console.log("onpage_on: "+onpage_on);
 		console.log("current_idx: "+current_idx);
-		console.log("total_section: "+total_section);
 
 		$('html').animate({scrollTop: y}, 500, function(){isScroll=false;});	
 	});
-});
+}, {passive: true});
 
 $( window ).resize(function() {
 	
