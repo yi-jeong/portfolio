@@ -6,20 +6,17 @@ var last_y = 0; // 스크롤 마지막 하단 높이
 var onpage_on = true;
 var isScroll = false;
 
-//window.addEventListener('load', function(){
-//	setTimeout(function(){
-//		document.documentElement.scrollTop=0;
-//	})
-//});
+window.addEventListener('load', function(){
+	setTimeout(function(){
+		document.documentElement.scrollTop=0;
+	})
+});
 
 $(document).ready(function(){
 
-
-if ($(window).width()> 1200){
-	
-	
 	init();
 
+if ($(window).width()> 1200){
 		
 	// Scroll Event
 	$('body').on('scroll touchmove mousewheel', function(event) {	
