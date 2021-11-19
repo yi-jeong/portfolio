@@ -125,9 +125,11 @@ a:hover{ font-weight:bold; }
 
 @media screen and ( max-width : 764px ) {
 	.portfolio-box ul li{ width:100%; }
+	.portfolio-box{ padding:0; }
 	.bottom-wrap{ margin-top:60px; }
 	.main-bottom-info,.main-bottom-page{ width:100%; }
 	.main-bottom-page{ text-align:left; margin-top:40px; }
+	.tit-wrap{ padding:40px; }
 }
 
 .wave { position: absolute;width: 5000px; height: 198px; transform: translate3d(0, 0, 0); }
